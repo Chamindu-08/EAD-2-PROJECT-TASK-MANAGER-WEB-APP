@@ -12,7 +12,7 @@
 	<artifactId>taskTinker</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>taskTinker</name>
-	<description>Tasks manager web app</description>
+	<description>Task manager web app</description>
 	<url/>
 	<licenses>
 		<license/>

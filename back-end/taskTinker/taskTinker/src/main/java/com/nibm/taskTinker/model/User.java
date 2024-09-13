@@ -6,16 +6,19 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Task")
+@Table(name = "Users")
 public class User {
     @Id
-    @Column(name = "UserEmail")
+    @Column(name = "user_email")
     private String userEmail;
-    @Column(name = "UserName")
+
+    @Column(name = "user_name")
     private String userName;
-    @Column(name = "UserPosition")
+
+    @Column(name = "user_position")
     private String userPosition;
-    @Column(name = "UserPassword")
+
+    @Column(name = "user_password")
     private String userPassword;
 
     public User() {

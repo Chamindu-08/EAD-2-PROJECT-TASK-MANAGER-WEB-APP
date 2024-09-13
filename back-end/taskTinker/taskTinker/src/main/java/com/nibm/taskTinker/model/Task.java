@@ -1,27 +1,34 @@
 package com.nibm.taskTinker.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.time.LocalDate;
-
 @Entity
-@Table(name = "Task")
+@Table(name = "Tasks")
 public class Task {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "TaskId")
+    @Column(name = "task_id")
     private int taskId;
-    @Column(name = "TaskName")
+
+    @Column(name = "task_name", nullable = false)
     private String taskName;
-    @Column(name = "TaskDescription")
+
+    @Column(name = "task_description")
     private String taskDescription;
-    @Column(name = "TaskPriority")
+
+    @Column(name = "task_priority")
     private String taskPriority;
-    @Column(name = "DueDate")
+
+    @Column(name = "due_date")
     private LocalDate dueDate;
-    @Column(name = "TaskStatus")
+
+    @Column(name = "task_status")
     private String taskStatus;
-    @Column(name = "UserEmail")
+
+    @Column(name = "user_email", nullable = false)
     private String userEmail;
 
     public Task() {
