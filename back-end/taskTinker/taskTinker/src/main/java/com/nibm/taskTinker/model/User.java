@@ -21,7 +21,15 @@ public class User {
     @Column(name = "user_password")
     private String userPassword;
 
+    private String confirmPassword;
+
     public User() {
+    }
+
+    public User(String userEmail, String userName, String userPosition) {
+        this.userEmail = userEmail;
+        this.userName = userName;
+        this.userPosition = userPosition;
     }
 
     public User(String userEmail, String userName, String userPosition, String userPassword) {
@@ -29,6 +37,14 @@ public class User {
         this.userName = userName;
         this.userPosition = userPosition;
         this.userPassword = userPassword;
+    }
+
+    public User(String userEmail, String userName, String userPosition, String userPassword, String confirmPassword) {
+        this.userEmail = userEmail;
+        this.userName = userName;
+        this.userPosition = userPosition;
+        this.userPassword = userPassword;
+        this.confirmPassword = confirmPassword;
     }
 
     public String getUserEmail() {
@@ -61,5 +77,13 @@ public class User {
 
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 }
