@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <script src="JavaScript/Dashboard.js"></script>
+</head>
+<body>
+    <div class="container">
+        <aside class="left">
+            <header>
+                <div class="logo">
+                    <h2>TaskTinker</h2>
+                </div>
+                <nav>
+                    <ul>
+                        <li><button id="btnDashboard"><span class="material-symbols-outlined">dashboard</span><span class="title">Dashboard</span></button></li>
+                        <li><button id="btnAddTask"><span class="material-symbols-outlined">add_task</span><span class="title">Add Task</span></button></li>
+                        <li><button id="btnCompleteTask"><span class="material-symbols-outlined">task_alt</span><span class="title">Complete Task</span></button></li>
+                        <li><button id="btnUpdateTask"><span class="material-symbols-outlined">update</span><span class="title">Update Task</span></button></li>
+                        <li><button id="btnRemoveTask"><span class="material-symbols-outlined">delete_history</span><span class="title">Remove Task</span></button></li>
+                        <li><button id="btnProfile"><span class="material-symbols-outlined">account_circle</span><span class="title">Profile</span></button></li>
+                    </ul>
+                </nav>
+                <div class="logout">
+                    <button id="bntLogout"><span class="material-symbols-outlined">logout</span> Log Out</button>
+                </div>
+            </header>
+        </aside>
+
+        <main class="right">
+            <div class="top">
+                <div class="searchBx">
+                    <h2 id="pageName"></h2>
+                </div>
+                <div class="user">
+                    <h2 id="username"><br></h2>
+                    <span class="material-symbols-outlined" id="accountIcon">account_circle</span>
+                    <div class="dropdown">
+                        <ul>
+                            <li><a href="ViewProfile.html" class="dropdown-item">
+                                <span class="material-symbols-outlined">account_circle</span> 
+                                Profile</a>
+                            </li>
+                            <li><a href="ViewProfile.html" class="dropdown-item">
+                                <span class="material-symbols-outlined">settings</span> 
+                                Settings</a>
+                            </li>
+                            <li><a href="LogOut.php" class="dropdown-item">
+                                <span class="material-symbols-outlined">logout</span> 
+                                Log Out</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="root">
+                <!-- Content will inject here -->
+            </div>
+        </main>
+    </div>
+</body>
+</html>

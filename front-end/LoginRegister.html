@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login | Admin</title>
+    <link rel="stylesheet" href="CSS/login.css">
+    <script src="JavaScript/LoginRegister.js"></script>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <div id="signupForm">
+                <h1>Create Account</h1>
+                <input type="text" id="name" placeholder="Name" required>
+                <input type="email" id="email" placeholder="E-Mail" required>
+                <input type="text" id="contactNo" placeholder="Contact No" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                <button type="submit" id="signup">Sign Up</button>
+            </div>
+        </div>
+
+        <div class="form-container sign-in">
+            <div id="signinForm">
+                <h1>Sign In</h1>
+                <!-- Error Message -->
+                <input type="email" id="loginEmail" placeholder="E-Mail" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <div id="invalidLogin"></div>
+                <button type="submit" id="login">Sign In</button>
+            </div>
+        </div>
+
+        <div class="toggle-container">    
+            <div class="toggle">    
+                <div class="toggle-panel toggle-left">    
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="togglelogin">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend</h1>
+                    <p>Register with your personal details to use all of site features</p>    
+                    <button class="hidden" id="toggleregister">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!-- Search Form -->
+<div class="TaskForm">
+    <div id="formTaskRemove" method="post" action="#">
+        <table>
+            <tr>
+                <td>
+                    <label for="taskName">Task Name</label><br>
+                    <select name="taskList" id="taskList" required>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit" id="searchTask">Search</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Remove Task Form -->
+<div class="TaskForm">
+    <div id="formTaskRemove" method="post" action="UpdateTask.php">
+        <table>
+            <tr>
+                <h2>Task Details</h2>
+            </tr>
+            <tr>
+                <td>
+                    <label for="taskName">Task Name</label><br>
+                    <input type="text" id="taskName" name="taskName" value="" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="taskDescription">Task Description</label><br>
+                    <textarea name="taskDescription" id="taskDescription" required></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="taskDate">Task Date</label><br>
+                    <input type="date" id="taskDate" name="taskDate" value="" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="taskPriority">Task Priority</label><br>
+                    <select name="taskPriority" id="taskPriority" required>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit" id="updateTask">Update</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

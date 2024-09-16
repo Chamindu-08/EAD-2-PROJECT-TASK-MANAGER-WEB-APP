@@ -1,0 +1,59 @@
+<!-- Search Form -->
+<div class="TaskForm">
+    <div id="formTaskSearch">
+        <table>
+            <tr>
+                <td>
+                    <label for="taskName">Task Name</label><br>
+                    <select name="taskList" id="taskList" required>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit" id="searchTask">Search</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Remove Task Form -->
+<div class="TaskForm">
+    <div id="formTaskRemove">
+        <table>
+            <tr>
+                <h2>Task Details</h2>
+            </tr>
+            <tr>
+                <td>
+                    <label for="taskName">Task Name</label><br>
+                    <input type="text" id="taskName" name="taskName" value="" disabled>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="taskDescription">Task Description</label><br>
+                    <textarea name="taskDescription" id="taskDescription" disabled></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="taskDate">Task Date</label><br>
+                    <input type="date" id="taskDate" name="taskDate" value="" disabled>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="taskPriority">Task Priority</label><br>
+                    <input type="text" id="taskPriority" name="taskPriority" value="" disabled>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit" id="removeButton">Remove</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

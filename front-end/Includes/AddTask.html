@@ -1,0 +1,40 @@
+<!-- Add Task Form -->
+<div class="TaskForm">
+    <div id="addtaskForm">
+        <table>
+            <tr>
+                <td>
+                    <label for="taskName">Task Name</label><br>
+                    <input type="text" id="taskName" name="taskName" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="taskDescription">Task Description</label><br>
+                    <textarea name="taskDescription" id="taskDescription" required></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="taskDate">Task Date</label><br>
+                    <input type="date" id="taskDate" name="taskDate" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="taskPriority">Task Priority</label><br>
+                    <select name="taskPriority" id="taskPriority" required>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit" id="addTask">Save</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

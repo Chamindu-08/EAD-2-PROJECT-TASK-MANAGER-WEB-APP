@@ -1,0 +1,751 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgb(229, 229, 229);
+}
+
+/* Container for the entire layout */
+.container {
+    display: flex;
+    width: 100%;
+    height: 90vh;
+}
+
+/* Left sidebar */
+.left {
+    position: fixed;
+    padding-top: 20px;
+    left: 20px;
+    width: 250px;
+    height: 90%;
+    background-color: white;
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    box-shadow: rgba(255, 255, 255, 0.5) 35px 35px 68px 0px,
+                inset rgba(255, 255, 255, 0.6) -8px -8px 16px 0px,
+                inset rgb(255, 255, 255) 0px 11px 28px 0px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+/* Logo */
+.left header .logo {
+    margin-bottom: 15px;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.left header .logo h2 {
+    text-align: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: 500;
+    cursor: pointer;
+    color: #000;
+}
+
+/* Logout button */
+.logout {
+    width: 100%;
+    padding: 0 20px;
+    margin-top: 22%;
+}
+
+.logout button {
+    width: 100%;
+    height: 40px;
+    background: rgb(0, 35, 135);
+    color: #fff;
+    border-radius: 20px;
+    border: none;
+    font-size: 1.2em;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Navigation menu */
+.left header nav {
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+
+.left header nav ul {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.left header nav ul li {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left header nav ul li button {
+    position: relative;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-decoration: none;
+    padding-left: 20px;
+    border: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition: .3s ease;
+    cursor: pointer;
+}
+
+.left header nav ul li button.active,
+.left header nav ul li button.active:hover {
+    transition: 0s;
+    background: #f1f3ff;
+}
+
+.left header nav ul li button.active::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background: rgb(0,35,135);
+    transition: .3s ease;
+}
+
+.left header nav ul li button.active::before,
+.left header nav ul li button.active:hover::before {
+    width: 4px;
+}
+
+.left header nav ul li button .material-symbols-outlined {
+    color: #999;
+    font-size: 1.7em;
+    margin-right: 10px;
+}
+
+.left header nav ul li button .title {
+    color: #999;
+    font-size: 1.1em;
+}
+
+.left header nav ul li button.active .material-symbols-outlined,
+.left header nav ul li button.active .title,
+.left header nav ul li button:hover .material-symbols-outlined,
+.left header nav ul li button:hover .title {
+    color: rgb(0,35,135);
+}
+
+/* Right main content area */
+.right {
+    margin-left: 290px;
+    margin-right: 20px;
+    width: calc(100% - 270px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Top section of the main content */
+.right .top {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.right .top .searchBx h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #000;
+}
+
+.right .top .user {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.right .top .user h2 {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #000;
+}
+
+.right .top .user span {
+    cursor: pointer;
+    font-size: 2rem;
+    color: rgb(0, 35, 135);
+}
+
+.right .root{
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.user .dropdown {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.user .dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user .dropdown ul li {
+    border-bottom: 1px solid #ddd;
+}
+
+.user .dropdown ul li:last-child {
+    border-bottom: none;
+}
+
+.user .dropdown ul li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #000;
+    transition: background-color 0.3s;
+}
+
+.user .dropdown ul li a:hover {
+    background-color: #f1f3ff;
+}
+
+/* User profile */
+.top .user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.top .user h2 {
+    font-size: 1.2em;
+    color: #000;
+}
+
+.top .user h2 span {
+    font-size: 0.8em;
+    color: #999;
+}
+
+.top .user .material-symbols-outlined {
+    font-size: 2em;
+    color: rgb(0, 35, 135);
+}
+
+.top .user .dropdown .material-symbols-outlined {
+    font-size: 1.5em;
+    color: rgb(0, 35, 135);
+}
+
+/* Main section */
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Cards container */
+.cards {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Card */
+.cards .card {
+    width: 30%;
+    height: 120px;
+    background: rgb(0, 35, 135);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.cards .card:hover {
+    background: rgb(0, 24, 91);
+}
+
+.cards .card .cardInner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cards .card .cardInner .cardTitle {
+    color: #fff;
+}
+
+.cards .card .cardInner h2 {
+    color: #fff;
+}
+
+.cards .card .cardInner .cardTitle h2 {
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+.cards .card .cardInner .cardMain {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.cards .card .cardInner .cardMain h2 {
+    color: #f1f3ff;
+    font-size: 2.0em;
+    font-weight: 500;
+}
+
+/* myTasks start */
+.myTasks {
+    position: relative;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    box-shadow: rgba(255, 255, 255, 0.5) 35px 35px 68px 0px,
+                inset rgba(255, 255, 255, 0.6) -8px -8px 16px 0px,
+                inset rgb(255, 255, 255) 0px 11px 28px 0px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.myTasks .tasksHead {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.myTasks .tasksHead h2 {
+    color: rgb(0,35,135);
+    font-size: 2.0em;
+    cursor: pointer;
+}
+
+.myTasks .tasksHead .tasksDots {
+    cursor: pointer;
+}
+
+.myTasks .tasksHead .tasksDots span {
+    color: #000;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.myTasks .tasks {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.myTasks .tasks ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.myTasks .tasks ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.myTasks .tasks ul li .tasksIconName {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.myTasks .tasks ul li .tasksIconName .tasksIcon {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.myTasks .tasks ul li .tasksIconName .tasksIcon.done {
+    color: #fff;
+    background: rgb(0, 35, 135);
+}
+
+.myTasks .tasks ul li .tasksIconName .tasksIcon.notDone {
+    background: #fff;
+    border: 3px solid #999;
+}
+
+.myTasks .tasks ul li .tasksIconName .tasksName {
+    color: #000;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 500;
+    padding-left: 10px;
+    position: relative;
+}
+
+.myTasks .tasks ul li .tasksIconName .tasksName.tasksLine {
+    color: #999;
+    cursor: not-allowed;
+}
+
+.myTasks .tasks ul li .tasksIconName .tasksName.tasksLine::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background: rgba(0, 0, 0, .3);
+}
+
+.myTasks .tasks ul li .tasksStar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding-right: 20px;
+}
+
+.myTasks .tasks ul li .tasksStar.full {
+    color: #f5c75f;
+}
+
+.myTasks .tasks ul li .tasksStar.half {
+    color: #f5c75f;
+}
+/* myTasks end */
+
+/* Project card */
+.projectCard {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    background: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    transition: 0.3s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.projectCard .projectTop {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.projectCard .projectTop .projectDots {
+    cursor: pointer;
+}
+
+.projectCard .projectTop .projectDots:hover {
+    color: rgb(0, 24, 91);
+}
+
+.projectCard .projectTop h2 {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #000;
+}
+
+.projectCard .projectTop span {
+    font-size: 0.9em;
+    color: rgb(153, 153, 153);
+}
+
+.projectCard .projectProgress {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.projectCard .projectProgress .process {
+    position: relative;
+    padding: 5px 10px;
+    background: #f1f3ff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.projectCard .projectProgress .process h2  {
+    color: rgb(0, 35, 135);
+    white-space: nowrap;
+    font-size: 1.1em;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.projectCard .projectProgress .priority {
+    position: relative;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.projectCard .projectProgress .priority::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    transform: translate(-50%, -50%);
+    background: #ff0000;
+    border-radius: 50%;
+    box-shadow: 0 0 2px #ff0000,
+        0 0 5px #ff000077;
+}
+
+.projectCard .projectProgress .priority h2 {
+    color: #ff0000;
+    white-space: nowrap;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.projectCard .projectDiscription {
+    width: 100%;
+}
+
+.projectCard .projectDiscription h2 {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #000;
+}
+
+.projectCard .projectDiscription p {
+    font-size: 1em;
+    font-weight: 400;
+    color: rgb(102, 102, 102);
+}
+
+.projectCard .date h2 {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #000;
+}
+
+.projectCard .date span {
+    font-size: 0.9em;
+    color: rgb(153, 153, 153);
+}
+
+/* Add task form */
+.TaskForm {
+    width: 100%;
+    background: #fff;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.TaskForm table {
+    width: 100%;
+}
+
+.TaskForm table tr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    gap: 40px;
+}
+
+.TaskForm table tr td {
+    width: 100%;
+}
+
+.TaskForm table tr td input {
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1.1em;
+}
+
+.TaskForm table tr td textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1.1em;
+}
+
+.TaskForm table tr td select {
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1.1em;
+}
+
+.TaskForm table tr td button {
+    width: 15%;
+    height: 40px;
+    background: rgb(0, 35, 135);
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.2em;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+}
+
+/* Responsive design */
+@media only screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left {
+        width: 100%;
+        height: auto;
+        position: static;
+    }
+
+    .right {
+        left: 0;
+        position: static;
+    }
+
+    .right .top {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .right .main {
+        padding: 0 20px;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    .cards .card {
+        width: 100%;
+    }
+}
+
+/* task oder */
+.taskOrder {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.taskOrderTitle h2 {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: black
+}
+
+.taskOrderMain {
+    display: flex;
+    align-items: center;
+}
+
+.taskOrderSelect {
+    width: 200px;
+    height: 40px;
+    background-color: #fff;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-size: 1em;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.taskOrderSelect option {
+    font-size: 1em;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0 10px;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
